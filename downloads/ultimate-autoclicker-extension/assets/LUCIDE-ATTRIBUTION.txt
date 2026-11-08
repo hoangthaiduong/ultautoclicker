@@ -1,0 +1,4 @@
+Icon set: Lucide
+Website: https://lucide.dev
+License: ISC
+A small offline-friendly subset of Lucide-style SVG icons is bundled for extension controls.

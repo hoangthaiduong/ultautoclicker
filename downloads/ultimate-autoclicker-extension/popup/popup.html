@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Ultimate Autoclicker</title><link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand"><img src="../assets/logo.svg" alt="" width="34" height="34"><div><strong>Ultimate Autoclicker</strong><span>Browser workflow control</span></div></div>
+      <button class="icon-btn" id="settings" title="Settings" aria-label="Open settings"><i data-lucide="settings"></i></button>
+    </header>
+
+    <section class="target-card">
+      <div class="target-top"><div><span class="eyebrow">ACTIVE PAGE</span><strong id="tab-title">No page selected</strong><small id="tab-url">Enable the extension on a page to begin.</small></div><span id="target-badge" class="badge">Not enabled</span></div>
+      <button id="connect" class="btn btn-outline full"><i data-lucide="plus"></i><span>Enable on this tab</span></button>
+      <p id="notice" class="notice" role="status">Only the tab you explicitly enable can be controlled.</p>
+    </section>
+
+    <section class="workflow-row">
+      <label for="workflow">Workflow</label><select id="workflow" aria-label="Select workflow"></select><button id="open-timeline" class="icon-btn small" title="Edit workflows" aria-label="Edit workflows"><i data-lucide="workflow"></i></button>
+    </section>
+
+    <section class="controls">
+      <div class="control-grid">
+        <button id="start" class="btn btn-primary" disabled><i data-lucide="play"></i>Play points</button>
+        <button id="pause" class="btn btn-soft" disabled><i data-lucide="pause"></i>Pause</button>
+        <button id="stop" class="btn btn-danger" disabled><i data-lucide="square"></i>Stop</button>
+      </div>
+      <button id="run-workflow" class="btn btn-outline full" disabled><i data-lucide="workflow"></i>Run selected Timeline workflow</button>
+      <div class="state-line"><span class="status-dot" id="status-dot"></span><span id="status-text">Stopped</span><span class="state-divider">·</span><span id="workflow-name">Quick Click</span></div>
+    </section>
+
+    <section class="stats">
+      <div class="stat"><span>Total points</span><strong id="points">0</strong></div>
+      <div class="stat"><span>Click count</span><strong id="clicks">0</strong></div>
+      <div class="stat"><span>Speed</span><strong id="speed">500 ms</strong></div><div class="stat"><span>Runs</span><strong id="runs">0</strong></div>
+    </section>
+      <div class="stats-foot"><button id="reset-stats" class="text-action">Reset statistics</button></div>
+
+    <section class="quick-actions">
+      <button class="quick" id="add-point"><span class="quick-icon"><i data-lucide="plus"></i></span><span>Add point</span></button>
+      <button class="quick" id="timeline"><span class="quick-icon"><i data-lucide="workflow"></i></span><span>Timeline</span></button>
+      <button class="quick" id="manage"><span class="quick-icon"><i data-lucide="sliders-horizontal"></i></span><span>Manage points</span></button>
+      <button class="quick" id="website"><span class="quick-icon"><i data-lucide="globe"></i></span><span>Website</span></button>
+    </section>
+
+    <footer class="footer"><span>Version 1.2.5</span><div><a href="../site/tutorial.html" target="_blank">Help</a><a href="../site/about.html#privacy" target="_blank">Privacy</a></div></footer>
+  </main>
+  <script src="../assets/uac-icons.js"></script><script src="popup.js"></script>
+</body>
+</html>

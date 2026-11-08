@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Timeline — Ultimate Autoclicker</title><link rel="stylesheet" href="timeline.css"></head>
+<body>
+  <header class="topbar"><a class="brand" href="#"><img src="../assets/logo.svg" alt="" width="35" height="35"><span><strong>Ultimate Autoclicker</strong><small>Workflow Studio</small></span></a><div class="top-actions"><span class="save-state" id="save-state">All changes saved</span><button class="btn btn-outline" id="pause-run" title="Pause active workflow">Pause</button><button class="btn btn-outline" id="stop-run" title="Stop active workflow">Stop</button><button class="btn btn-primary" id="run-workflow">Run workflow</button><button class="btn btn-outline" id="import">Import</button><button class="btn btn-primary" id="export">Export workflow</button><input type="file" id="import-file" accept=".json,.uacworkflow,application/json" hidden></div></header>
+  <main class="layout">
+    <aside class="sidebar">
+      <div class="side-title"><div><span class="eyebrow">WORKSPACE</span><h2>Workflows</h2></div><button class="icon-btn" id="new-workflow" title="New workflow" aria-label="New workflow"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg></button></div>
+      <div class="workflow-list" id="workflow-list"></div>
+      <div class="sidebar-footer"><button class="btn btn-outline full" id="duplicate-workflow">Duplicate selected</button><button class="btn btn-quiet full" id="delete-workflow">Delete selected</button></div>
+      <div class="side-help"><strong>Local-first</strong><p>Workflows and settings stay in this browser profile. Export a backup to move them to another device.</p></div>
+    </aside>
+    <section class="editor">
+      <div class="editor-heading"><div><span class="eyebrow">TIMELINE EDITOR</span><input id="workflow-name" class="workflow-name" maxlength="60" value="Default workflow" aria-label="Workflow name"><p class="subheading">Build a clear sequence of click actions, delays, parallel groups and repeats.</p></div><div class="editor-stats"><span><strong id="action-count">0</strong> actions</span><span><strong id="point-count">0</strong> points</span></div></div>
+      <div class="toolbar">
+        <div class="tool-group"><button class="btn btn-soft" data-add="click"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>Add click</button><button class="btn btn-outline" data-add="delay">Add delay</button><button class="btn btn-outline" data-add="parallel">Parallel group</button><button class="btn btn-outline" data-add="repeat">Repeat group</button><select id="preset-select" class="preset-select" aria-label="Insert workflow preset"><option value="">Insert preset…</option><option value="two-step">Two-step sequence</option><option value="repeat-click">Repeat a click</option><option value="parallel-clicks">Parallel clicks</option></select></div>
+        <div class="tool-group history"><button class="icon-btn" id="undo" title="Undo" aria-label="Undo"><svg viewBox="0 0 24 24"><path d="M9 14 4 9l5-5M4 9h10a6 6 0 0 1 0 12h-1"/></svg></button><button class="icon-btn" id="redo" title="Redo" aria-label="Redo"><svg viewBox="0 0 24 24"><path d="m15 14 5-5-5-5m5 5H10a6 6 0 0 0 0 12h1"/></svg></button></div>
+      </div>
+      <div class="mode-note"><span class="mode-dot"></span><span><strong>Sequential by default.</strong> Parallel groups launch their enabled child actions together; browser JavaScript still processes events on a single event loop.</span></div>
+      <div id="timeline-list" class="timeline-list"></div>
+      <div id="empty-state" class="empty-state hidden"><div class="empty-icon"><svg viewBox="0 0 24 24"><path d="M4 6h5v5H4zM15 13h5v5h-5zM9 8h6a2 2 0 0 1 2 2v3"/></svg></div><h3>Your timeline is empty</h3><p>Add a click action, then choose one of the points captured on your selected browser tab.</p><button class="btn btn-primary" data-add="click">Add your first click</button></div>
+      <div class="editor-foot"><span>Maximum workflow nesting: 5 levels · Per-action click count: 1–100</span><a href="../site/about.html#limitations">Read technical limits</a></div>
+    </section>
+  </main>
+  <script src="timeline.js"></script>
+</body></html>
